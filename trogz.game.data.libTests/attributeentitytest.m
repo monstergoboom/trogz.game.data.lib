@@ -24,7 +24,7 @@
 }
 
 -(void) testVerifyDb {
-    DataManager* dm = [[DataManager alloc] initWithName:@"trogz"];
+    DataManager* dm = [[DataManager alloc] init];
     
     bool result = [dm verify];
     

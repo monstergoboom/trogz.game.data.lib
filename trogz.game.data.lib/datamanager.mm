@@ -17,7 +17,7 @@ static NSString* const resourceTypeName = @"plist";
 
 // root definition
 static NSString* const userVersionAttribute = @"userVersion";
-static NSString* const scheamVersionAttribute = @"scheamVersion";
+static NSString* const scheamVersionAttribute = @"schemaVersion";
 static NSString* const modifiedDateAttribtue = @"modifiedDate";
 static NSString* const modifiedByAttribute = @"modifiedBy";
 static NSString* const templateAttribute = @"template";
