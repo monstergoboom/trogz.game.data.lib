@@ -17,7 +17,7 @@ static NSString* const resourceTypeName = @"plist";
 
 // root definition
 static NSString* const userVersionAttribute = @"userVersion";
-static NSString* const scheamVersionAttribute = @"schemaVersion";
+static NSString* const schemaVersionAttribute = @"schemaVersion";
 static NSString* const modifiedDateAttribtue = @"modifiedDate";
 static NSString* const modifiedByAttribute = @"modifiedBy";
 static NSString* const templateAttribute = @"template";
@@ -30,7 +30,7 @@ static NSString* const entitiesAttribute = @"entities";
         resourceUserVersion = 0;
         
         bundle = [NSBundle bundleForClass:[self class]];
-        resourcePath = [bundle pathForResource: name ofType:resourceTypeName];
+        resourcePath = [bundle pathForResource: dbName ofType:resourceTypeName];
         
         needsDataRefresh = false;
         needsCreateSchema = false;
@@ -46,31 +46,27 @@ static NSString* const entitiesAttribute = @"entities";
     if(resourcePath.length > 0) {
         NSDictionary *content = [NSDictionary dictionaryWithContentsOfFile:resourcePath];
         
-        NSNumber* uv = [content valueForKey:userVersionAttribute];
-        NSNumber* sv = [content objectForKey:scheamVersionAttribute];
+        long uv = [[content objectForKey:userVersionAttribute] longValue];
+        long sv = [[content objectForKey:schemaVersionAttribute] longValue];
         
-        if(uv!=nil && sv!=nil) {
-            if(uv.longValue > userVersion) {
-                [self setNeedsDataRefresh:true];
-                
-                if ( sv.longValue > schemaVersion) {
-                    [self setNeedsUpdateSchema:true];
-                }
-                else if(sv.longValue == 0) {
-                    [self setNeedsCreateSchema:true];
-                }
+        if(uv > userVersion) {
+            [self setNeedsDataRefresh:true];
+            
+            if ( sv > schemaVersion) {
+                [self setNeedsUpdateSchema:true];
             }
-            
-            resourceUserVersion = uv.intValue;
-            resourceSchemaVersion = uv.intValue;
-            
-            result = true;
-            
-            NSLog(@"create database: %d, update database: %d, refresh data: %d", needsCreateSchema, needsUpdateSchema, needsDataRefresh);
+            else if(sv == 0) {
+                [self setNeedsCreateSchema:true];
+            }
         }
-        else {
-            NSLog(@"incorrect file type or missing properties. userVersion, schemaVersion");
-        }
+            
+        resourceUserVersion = uv;
+        resourceSchemaVersion = sv;
+        
+        result = true;
+        
+        NSLog(@"create database: %d, update database: %d, refresh data: %d, user version: %ld, schema version: %ld", needsCreateSchema, needsUpdateSchema, needsDataRefresh, uv, sv);
+
     }
     else {
         NSLog(@"path and resource not found. %@.%@", dbName, resourceTypeName);

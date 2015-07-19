@@ -18,6 +18,8 @@
 		83B12C151974187100C73961 /* datamanager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83B12C131974187100C73961 /* datamanager.mm */; };
 		83B12C25197481E300C73961 /* attributeentitytest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B12C24197481E300C73961 /* attributeentitytest.m */; };
 		83B12C261974826200C73961 /* trogz.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83B12C211974264B00C73961 /* trogz.plist */; };
+		EF431ADD1B5B2A8300797E3D /* trogz.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83B12C211974264B00C73961 /* trogz.plist */; };
+		EF431ADE1B5B2A8300797E3D /* trogz.bootstrap.json in Resources */ = {isa = PBXBuildFile; fileRef = 8384743A1981862C001B2844 /* trogz.bootstrap.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,6 +167,7 @@
 				83B12BEE197416F400C73961 /* Sources */,
 				83B12BEF197416F400C73961 /* Frameworks */,
 				83B12BF0197416F400C73961 /* Headers */,
+				EF431ADC1B5B2A7B00797E3D /* Resources */,
 			);
 			buildRules = (
 			);
@@ -236,6 +239,15 @@
 			files = (
 				8384743B1981863C001B2844 /* trogz.bootstrap.json in Resources */,
 				83B12C261974826200C73961 /* trogz.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF431ADC1B5B2A7B00797E3D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF431ADD1B5B2A8300797E3D /* trogz.plist in Resources */,
+				EF431ADE1B5B2A8300797E3D /* trogz.bootstrap.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

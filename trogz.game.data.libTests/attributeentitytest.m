@@ -31,9 +31,13 @@
     XCTAssertTrue(result, @"unable to verify db, check log");
 }
 
+-(void) testCreateSchema {
+    
+}
+
 - (void)testReadTableDefinition {
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    NSString* plistPath = [bundle pathForResource:@"trogz.gec" ofType:@"plist"];
+    NSString* plistPath = [bundle pathForResource:@"trogz" ofType:@"plist"];
     NSDictionary *plistContents = [NSDictionary dictionaryWithContentsOfFile:plistPath];
     
     NSString* userVersion = [plistContents objectForKey:@"userVersion"];

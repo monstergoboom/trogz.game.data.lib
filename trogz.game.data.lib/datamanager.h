@@ -16,8 +16,8 @@
     NSBundle* bundle;
     NSString* resourcePath;
     
-    int resourceUserVersion;
-    int resourceSchemaVersion;
+    long resourceUserVersion;
+    long resourceSchemaVersion;
 }
 
 @property (nonatomic, assign) bool needsDataRefresh;

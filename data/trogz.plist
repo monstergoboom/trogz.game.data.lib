@@ -2,8 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>db</key>
+	<string>trogz.sqlite</string>
 	<key>modifiedDate</key>
-	<date>2014-07-15T14:13:18Z</date>
+	<date>2014-07-16T01:00:00Z</date>
 	<key>modifiedBy</key>
 	<string>Alek Mitrevski</string>
 	<key>userVersion</key>
